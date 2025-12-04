@@ -1,0 +1,55 @@
+{
+    "RSI_2p_V1": {
+        "stop_loss_strategy": "AtrBasedStopLoss",
+        "stop_loss_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "take_profit_strategy": "AtrBasedTakeProfit",
+        "take_profit_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "mean_reversion",
+        "core_signal_func": "2p_RSI",
+        "core_signal_params": {
+            "rsi_2p_signal_params": {
+                "period": 14,
+                "oversold": 40,
+                "overbought": 199,
+                "cumulative_window": 2
+            }
+        },
+        "filters": {
+            "adx_filter": {
+                "is_active": true,
+                "period": 14,
+                "threshold": 30,
+                "on_long": -1,
+                "on_short": -1
+            },
+            "ma_momentum_filter": {
+                "is_active": true,
+                "ma_func_fast": "sma",
+                "ma_func_slow": "sma",
+                "period_fast": 50,
+                "period_slow": 100,
+                "on_long": -1,
+                "on_short": 1
+            },
+            "ma_trend_filter": {
+                "is_active": false,
+                "period": 200,
+                "ma_func": "ema",
+                "on_long": 1,
+                "on_short": -1
+            }
+        }
+    }
+}

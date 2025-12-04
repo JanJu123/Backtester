@@ -1,0 +1,64 @@
+{
+  "regime_detection_rf_v1": {
+    "model_info": {
+      "model_name": "regime_detection_rf",
+      "version": "v1.0",
+      "description": "Initial Random Forest model for 3-state regime detection (Bullish, Bearish, Choppy)."
+    },
+
+    "feature_params": {
+      "adx_params": {
+        "is_active": false,
+        "period": 24
+      },
+      "atr_params": {
+        "is_active": true,
+        "atr_period": 10
+      },
+      "rsi_params": {
+        "is_active": false,
+        "period": 14
+      },
+      "bb_params": {
+        "is_active": false,
+        "period": 20,
+        "std_dev_mult": 2.0 
+      },
+      "ma_params": {
+        "is_active": true,
+        "ma_func": "ema",
+        "period": 100 
+      }
+    },
+
+    "labeling_params": {
+      "required_features": { 
+        "adx_params": { "period": 14 },
+        "ma_params": { "period": 200, "ma_func": "ema" }
+      },
+      "function_name": "label_simple_return_regime",
+      "func_params": {
+        "price_column": "Close",
+        "lookahead_period": 10,
+        "threshold": 0.015
+      }
+    },
+
+    "training_params": {
+      "model_type": "random_forest_classifier",
+      "split_params": {
+        "test_size": 0.2,
+        "shuffle": false  
+      },
+      "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 10,
+        "min_samples_leaf": 5,
+        "n_jobs": -1,
+        "random_state": 42,
+        "class_weight": "balanced"
+      }
+    }
+  }
+}
+

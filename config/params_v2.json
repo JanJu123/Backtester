@@ -1,0 +1,6 @@
+{
+    "trading_cost_params": {
+        "fees": 0.001,
+        "slippage": 0.0005
+    }
+}

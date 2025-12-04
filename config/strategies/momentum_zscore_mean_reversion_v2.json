@@ -1,0 +1,66 @@
+{
+    "Momentum_zscore_mean_reversion_V2": {
+        "stop_loss_strategy": "RRRBasedStopLoss",
+        "stop_loss_params": {
+            "rrr": 1,
+            "is_dynamic": true
+        },
+        "take_profit_strategy": null,
+        "take_profit_params": null,
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "mean_reversion",
+        "exit_on_neutral_signal": true,
+        "core_signal_func": "momentum_zscore",
+        "core_signal_params": {
+            "momentum_zscore_signal_params": {
+                "price_z_period": 20,
+                "price_z_ma_func": "ema",
+                "price_z_thresh_buy": -2.0,
+                "price_z_thresh_sell": 2.0,
+
+                "mom_z_period": 10,
+                "mom_z_ma_func": "ema",
+                "mom_z_thresh_buy": 1.0,
+                "mom_z_thresh_sell": -1.0,
+
+                "exit_ma_func": "ema",
+                "exit_ma_period": 50
+            }
+        },
+        "filters": {
+            "rsi_filter": {
+                "is_active": false,
+                "period": 14,
+                "smoothing_period": 18,
+                "oversold": 35,
+                "overbought": 85,
+                "on_long": 1,
+                "on_short": -1
+            },
+            "adx_filter": {
+                "is_active": false,
+                "period": 14,
+                "threshold": 25,
+                "on_long": -1,
+                "on_short": -1
+            },
+            "ma_trend_filter": {
+                "is_active": true,
+                "period": 200,
+                "ma_func": "ema",
+                "on_long": 1,
+                "on_short": -1
+            },
+            "hurst_exponent_filter": {
+                "is_active": false,
+                "lookback_period": 50,
+                "max_hurst_threshold": 0.45,
+                "on_long": -1,
+                "on_short": -1
+            }
+        }
+    }
+}

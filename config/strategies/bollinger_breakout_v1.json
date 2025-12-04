@@ -1,0 +1,50 @@
+{
+    "Bollinger_Bands_breakout_V1": {
+        "stop_loss_strategy": "AtrBasedStopLoss",
+        "stop_loss_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "take_profit_strategy": "AtrBasedTakeProfit",
+        "take_profit_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "breakout",
+        "exit_on_neutral_signal": false,
+        "core_signal_func": "bband",
+        "core_signal_params": {
+            "bb_signal_params": {
+                "period": 20,
+                "std_dev_mult": 2,
+                "column": "Close",
+                    
+                "exit_ma_func": "sma",
+                "exit_ma_period": 14
+            }
+        },
+        "filters": {
+            "rsi_filter": {
+                "is_active": true,
+                "period": 14,
+                "oversold": 30,
+                "overbought": 70,
+                "on_long": -1,
+                "on_short": 1
+            },
+            "adx_filter": {
+                "is_active": true,
+                "period": 14,
+                "threshold": 25,
+                "on_long": 1,
+                "on_short": 1
+            }
+        }
+    }
+}

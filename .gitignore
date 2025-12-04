@@ -1,0 +1,39 @@
+# --- Python & System Garbage (NUJNO) ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Environments (Virtualna okolja) ---
+trading_env/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# --- IDE Settings (VS Code itd.) ---
+.vscode/
+.idea/
+
+# --- Secrets (NIKOLI NE UPLOADAJ TEGA!) ---
+secret.env
+
+# --- Data & Databases ---
+*.db
+*.sqlite3
+data/databases/*.db
+
+# 1. Ignoriraj VSE v mapi data/files
+data/files/*
+
+# 2. IZJEMA: Ne ignoriraj mape 'crypto' (to dovolimo)
+!data/files/crypto/
+!data/files/crypto/*.csv
+
+# --- Outputs & Artifacts (Rezultati in modeli) ---
+experiment_outputs/
+trained_artifacts/
+MachineLearning/trained_artifacts/

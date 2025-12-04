@@ -1,0 +1,53 @@
+{
+    "Ma_Crossover_V1": {
+        "stop_loss_strategy": "AtrBasedStopLoss",
+        "stop_loss_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "take_profit_strategy": "AtrBasedTakeProfit",
+        "take_profit_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "trend_following",
+        "core_signal_func": "MA_crossover",
+        "core_signal_params": {
+            "ma_crossover_signal_params": {
+                "period_fast": 50,
+                "period_slow": 200,
+                "ma_func_slow": "sma",
+                "ma_func_fast": "sma"
+            }
+        },
+        "filters": {
+            "adx_filter": {
+                "is_active": false,
+                "period": 14,
+                "threshold": 40,
+                "on_long": 1,
+                "on_short": 1
+            },
+            "ma_momentum_filter": {
+                "is_active": false,
+                "period_fast": 50,
+                "period_slow": 100,
+                "on_long": 1,
+                "on_short": -1
+            },
+            "ma_trend_filter": {
+                "is_active": false,
+                "period": 200,
+                "ma_func": "ema",
+                "on_long": 1,
+                "on_short": -1
+            }
+        }
+    }
+}

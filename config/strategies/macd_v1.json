@@ -1,0 +1,55 @@
+{
+    "MACD_V1": {
+        "stop_loss_strategy": "AtrBasedStopLoss",
+        "stop_loss_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "take_profit_strategy": "AtrBasedTakeProfit",
+        "take_profit_params": {
+            "atr_period": 14,
+            "atr_multiplier": 1,
+            "is_dynamic": false
+        },
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "trend_following",
+        "core_signal_func": "macd_signal",
+        "core_signal_params": {
+            "macd_signal_params": {
+                "period_fast": 12,
+                "period_slow": 26,
+                "ma_func_slow": "vwema",
+                "ma_func_fast": "vwema",
+                "period_signal_line": 9,
+                "ma_func_signal_line": "ema"
+            }
+        },
+        "filters": {
+            "adx_filter": {
+                "is_active": true,
+                "period": 14,
+                "threshold": 35,
+                "on_long": 1,
+                "on_short": 1
+            },
+            "ma_momentum_filter": {
+                "is_active": false,
+                "period_fast": 35,
+                "period_slow": 100,
+                "on_long": 1,
+                "on_short": -1
+            },
+            "ma_trend_filter": {
+                "is_active": false,
+                "period": 200,
+                "ma_func": "ema",
+                "on_long": 1,
+                "on_short": -1
+            }
+        }
+    }
+}

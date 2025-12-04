@@ -1,0 +1,41 @@
+{
+    "LiquiditySweep_FVG_Entry_V1": {
+        "stop_loss_strategy": "FvgBasedStopLoss",
+        "stop_loss_params": {
+            "is_dynamic": false
+        },
+        "take_profit_strategy": "RiskRewardTakeProfit",
+        "take_profit_params": {
+            "risk_reward_ratio": 1,
+            "is_dynamic": false
+        },
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "price_action",
+        "core_signal_func": "liquidity_sweep_fvg",
+        "core_signal_params": {
+            "ls_fvg_signal_params": {
+                "range_lookback": 16,
+                "confirmation_window": 10
+            }
+        },
+        "filters": {
+            "adx_filter": {
+                "is_active": false,
+                "period": 14,
+                "threshold": 1,
+                "on_long": 1,
+                "on_short": 1
+            },
+            "ma_trend_filter": {
+                "is_active": true,
+                "period": 200,
+                "ma_func": "ema",
+                "on_long": 1,
+                "on_short": -1
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "Supertrend_trend_following_V1": {
+        "stop_loss_strategy": "AtrTrailingStopLoss",
+        "stop_loss_params": {
+            "atr_period": 10,
+            "atr_multiplier": 3,
+            "is_dynamic": true
+        },
+        "take_profit_strategy": null,
+        "take_profit_params": null,
+        "sizing_strategy": "FixedPctPositionSizing",
+        "sizing_params": {
+            "percentage_to_risk": 0.01
+        },
+        "strategy_type": "trend_following",
+        "core_signal_func": "supertrend",
+        "core_signal_params": {
+            "supertrend_signal_params": {
+                "atr_period": 10,
+                "atr_multiplier": 3,
+                "ma_func": "ema",
+                "ma_period": 200
+            }
+        },
+        "filters": {
+            "rsi_filter": {
+                "is_active": false,
+                "period": 14,
+                "oversold": 30,
+                "overbought": 70,
+                "on_long": -1,
+                "on_short": 1
+            },
+            "adx_filter": {
+                "is_active": true,
+                "period": 14,
+                "threshold": 25,
+                "on_long": 1,
+                "on_short": 1
+            }
+        }
+    }
+}

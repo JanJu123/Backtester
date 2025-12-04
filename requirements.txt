@@ -1,0 +1,29 @@
+# CORE LIBRARIES
+pandas==2.3.3
+numpy==2.3.5
+scipy==1.16.3
+
+# TECHNICAL ANALYSIS
+ta==0.11.0
+pandas_ta==0.4.71b0
+
+# MACHINE LEARNING & OPTIMIZATION
+scikit-learn==1.7.2
+optuna==4.6.0
+joblib==1.5.2
+dacite==1.9.2
+
+# DATA & API CONNECTORS
+yfinance==0.2.66
+dukascopy-python==4.0.1
+requests==2.32.5
+tqdm==4.67.1
+
+# DATABASE & CONFIG
+SQLAlchemy
+python-dotenv
+
+# VISUALIZATION
+matplotlib==3.10.7
+seaborn==0.13.2
+
