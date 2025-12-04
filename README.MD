@@ -156,7 +156,7 @@ project_root/
 
 ---
 
-## 🔮 Roadmap
+## Roadmap
 
 My development focus is shifting from pure research towards building a production-grade **Portfolio Execution Engine**.
 
