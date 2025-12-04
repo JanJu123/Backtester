@@ -129,7 +129,7 @@ project_root/
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/JanJu123/Backtester.git](https://github.com/JanJu123/Backtester.git)
+    git clone https://github.com/JanJu123/Backtester.git
     cd Backtester
     ```
 
