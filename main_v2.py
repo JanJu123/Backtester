@@ -86,6 +86,20 @@ if __name__ == "__main__":
     # main_df = main_df[mask]
 
 
+    # Make sure the files exist to save into
+    try:
+        os.makedirs(r"data/files/backtest", exist_ok=True)
+        os.makedirs(r"data/databases", exist_ok=True) # Mapa za SQLITE datoteke
+        os.makedirs(r"data/experiment_outputs", exist_ok=True) # Mapa za Optuna in druge outpute
+    except Exception as e:
+        print(f"Napaka pri kreiranju map: {e}")
+        # Nadaljujemo, ker je napaka morda nepomembna
+        pass
+
+
+
+
+
 
     if run_config.MODE in ["single", "s"]:
         # --- MODE 1: Run a single backtest with the default params from the JSON ---
@@ -201,15 +215,7 @@ if __name__ == "__main__":
 
 
         # ---- Save Data ----
-        try:
-            os.makedirs(r"data/files/backtest", exist_ok=True)
-            os.makedirs(r"data/databases", exist_ok=True) # Mapa za SQLITE datoteke
-            os.makedirs(r"data/experiment_outputs", exist_ok=True) # Mapa za Optuna in druge outpute
-        except Exception as e:
-            print(f"Napaka pri kreiranju map: {e}")
-            # Nadaljujemo, ker je napaka morda nepomembna
-            pass
-        
+       
         print("\n--- Saving Backtest Results ---")
         df_final_signals.to_csv(r"data/files/backtest/backtest_trades.csv", index=False) # Shranimo trejde za analizo
 
