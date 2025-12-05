@@ -1,0 +1,28 @@
+{
+    "name": "Python 3.10 Backtesting Environment",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    
+    // Nastavi točno verzijo Pythona 3.10
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.10"
+        }
+    },
+    
+    // Po inicializaciji namesti vse iz requirements.txt
+    "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+    
+    // Uporaba pravilne poti za VS Code nastavitve (Tvoj popravek!)
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black"
+            }
+        }
+    },
+
+    // Določi, kje je tvoj Workspace
+    "workspaceFolder": "/workspaces/Backtester"
+}
