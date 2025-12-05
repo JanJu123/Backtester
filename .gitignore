@@ -37,3 +37,6 @@ data/files/*
 experiment_outputs/
 trained_artifacts/
 MachineLearning/trained_artifacts/
+
+
+DOCUMENTATION.md
