@@ -197,11 +197,25 @@ if __name__ == "__main__":
 
 
         df_buy_and_hold = calc_buy_and_hold(main_df, run_config.INITIAL_CAPITAL)
+
+
+
         # ---- Save Data ----
+        try:
+            os.makedirs(r"data/files/backtest", exist_ok=True)
+            os.makedirs(r"data/databases", exist_ok=True) # Mapa za SQLITE datoteke
+            os.makedirs(r"data/experiment_outputs", exist_ok=True) # Mapa za Optuna in druge outpute
+        except Exception as e:
+            print(f"Napaka pri kreiranju map: {e}")
+            # Nadaljujemo, ker je napaka morda nepomembna
+            pass
+        
         print("\n--- Saving Backtest Results ---")
         df_final_signals.to_csv(r"data/files/backtest/backtest_trades.csv", index=False) # Shranimo trejde za analizo
-        # save_to_sql_database_fw(path=r"data\files\backtest", file_name="backtest.db", df_signals=df_final_signals, df_trades=df_trades, 
-        #                         summary=summary, df_buy_and_hold=df_buy_and_hold)
+
+        output_path = r"data/files/backtest/backtest_trades.csv"
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
         save_to_sql_database(path=r"data\files\backtest", file_name="backtest.db", df_signals=df_final_signals, df_trades=df_trades, 
                         summary=summary, df_buy_and_hold=df_buy_and_hold)
 
