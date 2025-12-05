@@ -101,7 +101,6 @@ project_root/
 ├── main_v2.py                  # Application Entry Point & Optimization Runner
 ├── statistical_analysis.py     # Root script for post-backtest statistical analysis
 ├── README.MD                   # Primary Documentation (This File)
-├── DOCUMENTATION.md            # Documentation is outdated and written in Slovene
 └── requirements.txt            # Project dependencies
 
 ```
@@ -161,10 +160,10 @@ project_root/
 My development focus is shifting from pure research towards building a production-grade **Portfolio Execution Engine**.
 
 * [ ] **Strategy Research & Validation (High Priority):**
-    * **Immediate Focus:** Utilize the existing backtesting pipeline to research and develope **statistically profitable Mean Reversion strategies** for Crypto or Futures markets (I need to decide for one and focus on one market only).
+    * **Immediate Focus:** Utilize the existing backtesting pipeline to research and develop **statistically profitable Mean Reversion strategies** for Crypto or Futures markets (I need to decide for one and focus on one market only).
 
 * [ ] **Portfolio-Level Backtesting:**
-    * Extend the architecture to run **multiple strategies on multiple instruments** simultaionsly (e.g., a basket of S&P 500 stocks).
+    * Extend the architecture to run **multiple strategies on multiple instruments** simultaneously (e.g., a basket of S&P 500 stocks).
     * Implement aggregated portfolio risk management (e.g., limiting total exposure across correlated assets).
     * Add automated benchmarking against market indices (Buy & Hold SPY) to calculate Alpha.
 
